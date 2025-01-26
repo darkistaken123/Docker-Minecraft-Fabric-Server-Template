@@ -3,6 +3,7 @@ services:
     image: itzg/minecraft-server:latest
     tty: true
     stdin_open: true
+    mem_limit: 4G
     ports:
       - ${SERVER_PORT}:25565
       - ${PROMETHEUS_SCRAPE_PORT}:19565
@@ -34,6 +35,7 @@ services:
     image: bitnami/prometheus:latest
     tty: true
     stdin_open: true
+    mem_limit: 0.5G
     ports:
       - ${PROMETHEUS_PORT}:9090
     volumes:
@@ -46,6 +48,7 @@ services:
   grafana:
     image: grafana/grafana:latest
     stdin_open: true
+    mem_limit: 0.5G
     ports:
       - ${GRAFANA_PORT}:3000
     volumes:
@@ -58,6 +61,7 @@ services:
   promtail:
     image: grafana/promtail:latest
     stdin_open: true
+    mem_limit: 0.5G
     volumes:
       - ./mcdata/logs:/var/log
     restart: on-failure:3
@@ -69,6 +73,7 @@ services:
   loki:
     image: grafana/loki:latest
     stdin_open: true
+    mem_limit: 0.5G
     ports:
       - ${LOKI_PORT}:3100
     restart: on-failure:3
