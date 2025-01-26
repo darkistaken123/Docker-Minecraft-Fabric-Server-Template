@@ -20,6 +20,7 @@ services:
       RCON_CMDS_ON_CONNECT: "TRUE"
       RCON_CMDS_ON_DISCONNECT: "TRUE"
       BROADCAST_RCON_TO_OPS: "TRUE"
+      USE_AIKAR_FLAGS:"TRUE"
 
     volumes:
       - ./mcdata:/data
@@ -48,7 +49,7 @@ services:
   grafana:
     image: grafana/grafana:latest
     stdin_open: true
-    mem_limit: 0.5G
+    mem_limit: 1G
     ports:
       - ${GRAFANA_PORT}:3000
     volumes:
