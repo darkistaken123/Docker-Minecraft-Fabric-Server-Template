@@ -5,7 +5,7 @@ services:
     stdin_open: true
     ports:
       - ${SERVER_PORT}:25565
-      - ${PROMETHEUS_SCAPE_PORT}:19565
+      - ${PROMETHEUS_SCRAPE_PORT}:19565
     environment:
       TYPE: "FABRIC"
       MEMORY: ${MEMORY}
