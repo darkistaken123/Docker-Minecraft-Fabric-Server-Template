@@ -1,0 +1,85 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    tty: true
+    stdin_open: true
+    ports:
+      - ${SERVER_PORT}:25565
+      - ${PROMETHEUS_SRAPE_PORT}:19565
+    environment:
+      TYPE: "FABRIC"
+      MEMORY: ${MEMORY}
+      MAX_MEMORY: ${MAX_MEMORY}
+      MOTD: ${MOTD}
+      OPS: ${OP}
+      VERSION: ${VERSION}
+      ENABLE_WHITELIST: ${WHITELIST}
+      ENFORCE_WHITELIST: ${ENFORCE_WHITELIST}
+      EULA: "TRUE"
+      RCON_CMDS_ON_CONNECT: "TRUE"
+      RCON_CMDS_ON_DISCONNECT: "TRUE"
+      BROADCAST_RCON_TO_OPS: "TRUE"
+
+    volumes:
+      - ./mcdata:/data
+      - ./mods:/data/mods
+
+    restart: on-failure:3
+    networks:
+
+      minecraft:
+        aliases:
+          - minecraft
+  prometheus:
+    image: bitnami/prometheus:latest
+    tty: true
+    stdin_open: true
+    ports:
+      - ${PROMETHEUS_PORT}:9090
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    restart: on-failure:3
+    networks:
+      minecraft:
+        aliases:
+          - prometheus
+  grafana:
+    image: grafana/grafana:latest
+    stdin_open: true
+    ports:
+      - ${GRAFANA_PORT}:3000
+    volumes:
+      - ./grafana:/var/lib/grafana
+    restart: on-failure:3
+    networks:
+      minecraft:
+        aliases:
+          - grafana
+  promtail:
+    image: grafana/promtail:latest
+    stdin_open: true
+    volumes:
+      - ./mcdata/logs:/var/log
+    restart: on-failure:3
+    networks:
+      minecraft:
+        aliases:
+          - promtail
+
+  loki:
+    image: grafana/loki:latest
+    stdin_open: true
+    ports:
+      - ${LOKI_PORT}:3100
+    restart: on-failure:3
+    networks:
+      minecraft:
+        aliases:
+          - loki
+
+networks:
+  minecraft:
+    name: minecraft
+    driver: bridge
+
+  
