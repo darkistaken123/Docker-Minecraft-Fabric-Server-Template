@@ -36,7 +36,7 @@ This repo contains the following files:
 
 4- Server should be up and running for LAN.
 
-## Port Mapping
+## Port Fowarding
 
 ### Windows
 
@@ -49,7 +49,8 @@ In order for your friends to be able to connect to your server there are a serio
 After this two steps your friends should be able to connect with `Your Public IP:ServerPort`. If you don't know your public ip or you want to check if the port is open [Click Here](https://www.portchecktool.com/). 
 
 ### Linux
-TODO
+1- Head into your router config, you can access by typing `ipconfig` in windows and searching for `ethernet default gateway`. After logging into your router head into the `port forwarding`, fill in a **new rule** with the `external port` being the one you set in your **.env** file as `SERVER_PORT`, and your `ethernet IPv4` as `internal ip adress` or if you are Host you can easily log in with the `localhost:ServerPort`.
+After this two steps your friends should be able to connect with `Your Public IP:ServerPort`. If you don't know your public ip or you want to check if the port is open [Click Here](https://www.portchecktool.com/).
 
 ## Common Issues
 
