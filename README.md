@@ -1,5 +1,5 @@
 # Docker Minecraft Server
-Repository to deploy a **fabric minecraft 1.21.1 server** using [Docker](https://docs.docker.com/desktop/) with observability tools 
+Repository to deploy a **fabric minecraft 1.21.1 server** using [Docker Desktop](https://docs.docker.com/desktop/) or [Docker Engine](https://docs.docker.com/engine/install/) with observability tools 
 
 
 ## Documentation
