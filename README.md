@@ -26,6 +26,8 @@ This repo contains the following files:
 ## How to Run
 0- Install [Docker](https://docs.docker.com/desktop/) in your computer and check if your bios has [virtualization](https://support.microsoft.com/en-us/windows/enable-virtualization-on-windows-c5578302-6e43-4b4b-a449-8ced115f58e1) on, this change will require to reboot in order to set up. 
 
+0.5- If you are using a linux distro, you **should** add the following line `user: "root:root"` to the `grafana` service inside `docker-compose.yaml` in since it may run into permission issues. 
+
 1- Use bash/powershell terminal and head to the repository folder.
 
 2- Execute `docker compose up -d` and wait for the containers to be up and running.
