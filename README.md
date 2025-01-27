@@ -32,7 +32,7 @@ This repo contains the following files:
 
 2- Execute `docker compose up -d` and wait for the containers to be up and running.
 
-3- Head into multiplayer and add a new server with the ip `localhost:25565` or `127.0.0.1:25565`.
+3- Head into multiplayer and add a new server with the ip `localhost:25565` or `127.0.0.1:25565` if you didnt change the variable.
 
 4- Server should be up and running for LAN.
 
