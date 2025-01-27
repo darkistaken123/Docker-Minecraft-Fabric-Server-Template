@@ -3,7 +3,7 @@ Repository to deploy a **fabric minecraft 1.21.1 server** using [Docker](https:/
 
 
 ## Documentation
-It is **highly recommended** to [Read Iztg's Documentation](https://docker-minecraft-server.readthedocs.io/en/latest/) to fully customize your docker-compose.yml file to fit your desired configs.
+It is **highly recommended** to [Read Iztg's Documentation](https://docker-minecraft-server.readthedocs.io/en/latest/) to fully customize your docker-compose.yaml file to fit your desired configs.
 
 ## Tools
 The base observability tools included are:
@@ -32,9 +32,12 @@ This repo contains the following files:
 
 3- Head into multiplayer and add a new server with the ip `localhost:25565` or `127.0.0.1:25565`.
 
-4- Server should be up and running for LAN
+4- Server should be up and running for LAN.
 
 ## Port Mapping
+
+### Windows
+
 In order for your friends to be able to connect to your server there are a serious of steps to do in order for your server to be accessible to the public:
 
 1- Head into your router config, you can access by typing `ipconfig` in windows and searching for `ethernet default gateway`. After logging into your router head into the `port forwarding`, fill in a **new rule** with the `external port` being the one you set in your **.env** file as `SERVER_PORT`, and your `ethernet IPv4` as `internal ip adress` or if you are Host you can easily log in with the `localhost:ServerPort`.
@@ -43,6 +46,9 @@ In order for your friends to be able to connect to your server there are a serio
 
 After this two steps your friends should be able to connect with `Your Public IP:ServerPort`. If you don't know your public ip or you want to check if the port is open [Click Here](https://www.portchecktool.com/). 
 
+### Linux
+TODO
+
 ## Common Issues
 
 - In case the **Host or anyone connected to the host router** wants to join by using the public ip may be incapable of connecting due to not having [NAT LOOPBACK](https://kb.netgear.com/000049578/What-is-NAT-loopback-and-which-NETGEAR-routers-support-NAT-loopback) support, for this case it is recommended to login with the private local ip address known as `Ethernet IPv4:ServerPort`.
@@ -50,4 +56,4 @@ After this two steps your friends should be able to connect with `Your Public IP
 - Another issue that may happen is if you have the whitelist activated where you need to manually add the different users into the whitelist.json to let them join your server with the following syntax:
 `[{"name":"USERNAME","uuid":"USER UUID"}]` in case you dont know your user uuid you can [Check It Here](https://mcuuid.net/). An alternative to add users into the whitelist can be achieved inside the game by using the following command `/whitelist USERNAME` however you need an OP inside the server to trigger this command in the chat.
 
-- I want to play in other version how can i do it? You can actually change the environment variable
+- I want to play in other version how can i do it? You can actually change the environment variable.
