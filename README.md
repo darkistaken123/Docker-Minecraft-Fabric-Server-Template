@@ -59,3 +59,4 @@ TODO
 `[{"name":"USERNAME","uuid":"USER UUID"}]` in case you dont know your user uuid you can [Check It Here](https://mcuuid.net/). An alternative to add users into the whitelist can be achieved inside the game by using the following command `/whitelist USERNAME` however you need an OP inside the server to trigger this command in the chat.
 
 - I want to play in other version how can i do it? You can actually change the environment variable.
+- My grafana container did not start and when i check the logs i get permission errors, what do i do? You are probably trying to start the server in a linux machine **Read step 0.5 on How to Run** 
