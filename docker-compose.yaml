@@ -56,11 +56,16 @@ services:
       - ${GRAFANA_PORT}:3000
     volumes:
       - ./grafana:/var/lib/grafana
+      - ./grafana/logs:/var/log/grafana
     restart: on-failure:3
     networks:
       minecraft:
         aliases:
           - grafana
+   environment:
+      - GF_LOG_MODE=file  
+      - GF_PATHS_LOGS=/var/log/grafana/grafana.log
+      
   promtail:
     image: grafana/promtail:latest
     stdin_open: true
