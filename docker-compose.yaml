@@ -23,17 +23,15 @@ services:
       USE_AIKAR_FLAGS: "TRUE"
       VIEW_DISTANCE: ${VIEW_DISTANCE}
       SIMULATION_DISTANCE: ${SIMULATION_DISTANCE}
-
     volumes:
       - ./mcdata:/data
       - ./mods:/data/mods
-
     restart: on-failure:3
     networks:
-
       minecraft:
         aliases:
           - minecraft
+
   prometheus:
     image: bitnami/prometheus:latest
     tty: true
@@ -48,6 +46,7 @@ services:
       minecraft:
         aliases:
           - prometheus
+
   grafana:
     image: grafana/grafana:latest
     stdin_open: true
@@ -62,10 +61,10 @@ services:
       minecraft:
         aliases:
           - grafana
-   environment:
+    environment:
       - GF_LOG_MODE=file  
       - GF_PATHS_LOGS=/var/log/grafana/grafana.log
-      
+
   promtail:
     image: grafana/promtail:latest
     stdin_open: true
@@ -94,5 +93,3 @@ networks:
   minecraft:
     name: minecraft
     driver: bridge
-
-  
