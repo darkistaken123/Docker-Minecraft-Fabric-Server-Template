@@ -19,7 +19,7 @@ This repo contains the following files:
   
 - ***.env***: An example .env file or **environment variables** to customize your **local machine ports**, variables are set with the default values aswell as the **ops** for the server.
 
-- ***mods***: This folder contains the .jar files for specific **mods** to be copied into the container, in this case it contains the **Prometheus Exporter v1.21.1** to be able to obtain the metrics, the **fabric-api** to be able to launch the server and **lithium** to improve performance,  it is recommended to [Read This Part To Differenciate Mods From Plugins](https://docker-minecraft-server.readthedocs.io/en/latest/mods-and-plugins/), you can also create your own **plugins** folder and modify the `volumes` in the `docker-compose` to map specific plugins in case you need it. If you want to **add a modpack** the documentation explains how to include them easily.
+- ***plugins***: This folder contains the .jar files for specific **mods** to be copied into the container, in this case it contains the **Prometheus Exporter v1.21.1** to be able to obtain the metrics, the **fabric-api** to be able to launch the server and **lithium** to improve performance,  it is recommended to [Read This Part To Differenciate Mods From Plugins](https://docker-minecraft-server.readthedocs.io/en/latest/mods-and-plugins/), you can also create your own **plugins** folder and modify the `volumes` in the `docker-compose` to map specific plugins in case you need it. If you want to **add a modpack** the documentation explains how to include them easily.
 
 - ***prometheus***: This folder contains the `prometheus.yml` with the config to scrape metrics of the different services, in this case minecraft and prometheus itself.
   
